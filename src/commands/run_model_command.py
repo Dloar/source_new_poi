@@ -1,12 +1,11 @@
 import logging
 from typing import NoReturn
 
-from src.commands.find_poi_on_name_handler import FindPoiOnNameHandler
-from src.handlers.UploadPoiResultsHandler import UploadPoiResultsHandler
-from src.handlers.calculate_poi_distances_handler import CalculatedPoiDistances
-from src.handlers.define_new_ids_handler import DefineNewIds
-from src.handlers.get_data_for_modeling_handler import GetAllModelingData
-
+from commands.find_poi_on_name_handler import FindPoiOnNameHandler
+from handlers.UploadPoiResultsHandler import UploadPoiResultsHandler
+from handlers.calculate_poi_distances_handler import CalculatedPoiDistances
+from handlers.define_new_ids_handler import DefineNewIds
+from handlers.get_data_for_modeling_handler import GetAllModelingData
 
 class RunModel:
 

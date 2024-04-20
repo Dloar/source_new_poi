@@ -5,8 +5,8 @@ import mysql
 from sqlalchemy import create_engine
 
 
-from src.handlers.get_config_parameters import ParFactory
-from src.services.support_functions import _get_secret
+from handlers.get_config_parameters import ParFactory
+from services.support_functions import _get_secret
 
 
 class DbConnectorModel:

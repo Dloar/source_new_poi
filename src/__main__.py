@@ -4,7 +4,7 @@ import os
 import sys
 import warnings
 
-from src.commands.run_model_command import RunModel
+from commands.run_model_command import RunModel
 
 if sys.platform == 'linux':
     poi_brand = os.environ["poi_brand"]

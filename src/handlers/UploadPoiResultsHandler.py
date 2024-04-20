@@ -1,4 +1,4 @@
-from src.handlers.create_db_connection import DbConnectorModel
+from handlers.create_db_connection import DbConnectorModel
 
 
 class UploadPoiResultsHandler:

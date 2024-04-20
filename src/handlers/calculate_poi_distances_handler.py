@@ -1,7 +1,7 @@
 import mpu
 import pandas as pd
 
-from src.services.calculate_distance_between_two_points_service import calculate_distance_between_two_points
+from services.calculate_distance_between_two_points_service import calculate_distance_between_two_points
 
 
 class CalculatedPoiDistances:

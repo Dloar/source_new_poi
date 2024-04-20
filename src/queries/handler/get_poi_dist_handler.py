@@ -4,8 +4,8 @@ import logging
 
 import pandas as pd
 
-from src.handlers.create_db_connection import DbConnectorModel
-from src.queries.get_poi_data_query import GetPoiSourceData
+from handlers.create_db_connection import DbConnectorModel
+from queries.get_poi_data_query import GetPoiSourceData
 
 
 class GetPoiDistances:

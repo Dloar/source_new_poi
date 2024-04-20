@@ -4,8 +4,8 @@ import logging
 
 import pandas as pd
 
-from src.handlers.create_db_connection import DbConnectorModel
-from src.queries.get_campaign_billboard_data_query import GetBillboardSourceDataQuery
+from handlers.create_db_connection import DbConnectorModel
+from queries.get_campaign_billboard_data_query import GetBillboardSourceDataQuery
 
 
 class GetBillboardSourceData:

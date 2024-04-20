@@ -4,8 +4,8 @@ import logging
 
 import pandas as pd
 
-from src.queries.handler.get_poi_dist_handler import GetPoiDistances
-from src.queries.handler.get_source_billboard_data_handler import GetBillboardSourceData
+from queries.handler.get_poi_dist_handler import GetPoiDistances
+from queries.handler.get_source_billboard_data_handler import GetBillboardSourceData
 
 
 class GetAllModelingData:
