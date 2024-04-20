@@ -3,7 +3,7 @@ import logging
 import os
 import sys
 import warnings
-
+print(os.getcwd())
 from commands.run_model_command import RunModel
 
 if sys.platform == 'linux':
