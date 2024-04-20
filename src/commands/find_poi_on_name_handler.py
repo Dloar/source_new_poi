@@ -7,7 +7,7 @@ import yaml
 
 class FindPoiOnNameHandler():
     def __init__(self, ):
-        with open('../../development/config.yaml') as config:
+        with open('../development/config.yaml') as config:
             country_parts_config = yaml.safe_load(config)
 
         self.districts = country_parts_config['model_parameters']['country_districts']
@@ -73,5 +73,5 @@ class FindPoiOnNameHandler():
         selected_poi_df.drop_duplicates(inplace=True)
         selected_poi_df.reset_index(drop=True, inplace=True)
 
-        print(f'For {poi_name}, the model found {selected_poi_df.shape[0]} places')
+        logging.info(f'For {poi_name}, the model found {selected_poi_df.shape[0]} places')
         return selected_poi_df
