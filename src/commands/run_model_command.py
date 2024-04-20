@@ -26,10 +26,10 @@ class RunModel:
         new_poi_ids_df = DefineNewIds(source_data=source_data, poi_name=poi_brand, selected_poi_df=new_selected_poi_df)
         print(2)
 
-        # Calculate distances
-        calculated_distances_df = CalculatedPoiDistances(source_data=source_data, poi_name=poi_brand,
-                                                         selected_poi_df=new_poi_ids_df).define_new_poi_dataframe()
-        print(3)
+        # # Calculate distances
+        # calculated_distances_df = CalculatedPoiDistances(source_data=source_data, poi_name=poi_brand,
+        #                                                  selected_poi_df=new_poi_ids_df).define_new_poi_dataframe()
+        # print(3)
 
         # UploadPoiResultsHandler(calculated_distances_df=calculated_distances_df,
         #                         new_ids_df=new_poi_ids_df.new_ids_df)
