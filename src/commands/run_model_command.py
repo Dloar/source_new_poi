@@ -13,7 +13,7 @@ class RunModel:
     def run_model(poi_brand: str, poi_group: str) -> NoReturn:
         try:
             print(200)
-        except Exception as e:
+        except:
             print(500)
 
         # Source poi ids and distances
@@ -21,15 +21,12 @@ class RunModel:
         # Find new pois based name
         # FindPoiOnNameHandler().define_gps_psc()
         new_selected_poi_df = FindPoiOnNameHandler().find_poi_on_name_handler(poi_brand=poi_brand, poi_group=poi_group)
-        print(1)
         # Define new ids for the db
         new_poi_ids_df = DefineNewIds(source_data=source_data, poi_name=poi_brand, selected_poi_df=new_selected_poi_df)
-        print(2)
 
         # # Calculate distances
         calculated_distances_df = CalculatedPoiDistances(source_data=source_data, poi_name=poi_brand,
                                                          selected_poi_df=new_poi_ids_df).define_new_poi_dataframe()
-        print(3)
 
         # UploadPoiResultsHandler(calculated_distances_df=calculated_distances_df,
         #                         new_ids_df=new_poi_ids_df.new_ids_df)
