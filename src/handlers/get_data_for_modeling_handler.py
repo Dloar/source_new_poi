@@ -17,4 +17,4 @@ class GetAllModelingData:
         self.poi_data_df = GetPoiDistances().load_campaign_poi_ids_data()
         self.billboards_df = GetBillboardSourceData().load_campaign_billboard_source_data()
 
-        print(f'All data loaded.')
+        logging.info(f'All data loaded.')
