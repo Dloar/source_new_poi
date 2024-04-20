@@ -20,7 +20,7 @@ class GetPoiDistances:
         conn_engine = DbConnectorModel()
         db_conn = conn_engine.create_db_connection()
         campaign_poi_data = pd.read_sql_query(
-            GetPoiSourceData.query_poi_ids_data(schema_name='adwiro-db-dev'),
+            GetPoiSourceData.query_poi_ids_data(schema_name='adwiro-db-test'),
             db_conn)
         db_conn.close()
 
