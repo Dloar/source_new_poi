@@ -13,7 +13,7 @@ class GetBillboardSourceData:
         conn_engine = DbConnectorModel()
         db_conn = conn_engine.create_db_connection()
         campaign_billboard_source_data = pd.read_sql_query(
-            GetBillboardSourceDataQuery.query_source_billboard_data(schema_name='adwiro_web_test'), db_conn)
+            GetBillboardSourceDataQuery.query_source_billboard_data(schema_name='adwiro-web-test'), db_conn)
 
         db_conn.close()
 
