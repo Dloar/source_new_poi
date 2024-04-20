@@ -13,13 +13,16 @@ else:
     poi_brand = 'Kaufland'
     poi_group = ''
 
-# set up parameters
 FORMAT = '%(asctime)s: %(message)s'
 logging.getLogger('boto').setLevel(logging.CRITICAL)
 
+# Create a drectory for logging
+newpath = f'{os.getcwd()}/F-{poi_brand}'
+if not os.path.exists(newpath):
+    os.makedirs(newpath)
 
 logging.basicConfig(format=FORMAT, level=logging.DEBUG,
-                    filename=f'commands/logging/{poi_brand}: {datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")}.log')
+                    filename=f'{newpath}/{poi_brand}: {datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")}.log')
 warnings.filterwarnings("ignore")
 
 startTime = datetime.datetime.now()
