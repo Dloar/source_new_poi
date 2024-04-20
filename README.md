@@ -1,2 +1,4 @@
-# source_new_poi
-source new poi via API
+# Geocoding
+
+vytvoření Windows exectutable pomocí modulu pyinstaller
+`pyinstaller -wF geocoding/geocoding.py`

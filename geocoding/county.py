@@ -1,0 +1,3 @@
+COUNTY = (
+    "okres Benešov",
+)
