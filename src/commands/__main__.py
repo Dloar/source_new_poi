@@ -1,12 +1,18 @@
 import datetime
 import logging
 import os
+import sys
 import warnings
 
 from src.commands.run_model_command import RunModel
 
-poi_brand = 'Kaufland'
-poi_group = ''
+if sys.platform == 'linux':
+    poi_brand = os.environ["poi_brand"]
+    poi_group = os.environ["poi_group"]
+else:
+    poi_brand = 'Kaufland'
+    poi_group = ''
+
 # set up parameters
 FORMAT = '%(asctime)s: %(message)s'
 logging.getLogger('boto').setLevel(logging.CRITICAL)
