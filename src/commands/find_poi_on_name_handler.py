@@ -73,5 +73,5 @@ class FindPoiOnNameHandler():
         selected_poi_df.drop_duplicates(inplace=True)
         selected_poi_df.reset_index(drop=True, inplace=True)
 
-        logging.info(f'For {poi_name}, the model found {selected_poi_df.shape[0]} places')
+        print(f'For {poi_name}, the model found {selected_poi_df.shape[0]} places')
         return selected_poi_df
