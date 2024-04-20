@@ -19,7 +19,7 @@ logging.getLogger('boto').setLevel(logging.CRITICAL)
 
 
 logging.basicConfig(format=FORMAT, level=logging.DEBUG,
-                    filename=f'commands/logging/{poi_brand}: {datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")}.log')
+                    filename=f'src/commands/logging/{poi_brand}: {datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")}.log')
 warnings.filterwarnings("ignore")
 
 startTime = datetime.datetime.now()
