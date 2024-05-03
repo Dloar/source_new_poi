@@ -8,7 +8,6 @@ import os
 
 class FindPoiOnNameHandler():
     def __init__(self, ):
-        print(os.getcwd())
         with open('config/config.yaml') as config:
             country_parts_config = yaml.safe_load(config)
 
