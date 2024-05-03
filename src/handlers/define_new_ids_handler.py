@@ -16,17 +16,12 @@ class DefineNewIds:
     def define_new_ids(self, selected_poi_df, max_id):
         # Filter possible existing pois and define new ids
         existing_poi = self.source_data.poi_data_df.loc[self.source_data.poi_data_df['name'] == self.poi_name]
-        if existing_poi.empty:
-            name = self.poi_name
-            type_name = list(selected_poi_df['label'])[0]
-            subtype_name = list(selected_poi_df['label'])[0]
-        else:
-            name = existing_poi['name'].iloc[0]
-            type_name = existing_poi['type_name'].iloc[0]
-            subtype_name = existing_poi['subtype_name'].iloc[0]
 
         # Validate distance compare to existing poi
         if not existing_poi.empty:
+            name = existing_poi['name'].iloc[0]
+            type_name = existing_poi['type_name'].iloc[0]
+            subtype_name = existing_poi['subtype_name'].iloc[0]
             new_validated_ids = []
             for poi in selected_poi_df.index:
                 selected_poi_row = selected_poi_df.loc[poi]
@@ -38,8 +33,12 @@ class DefineNewIds:
                                                                      point_long2=selected_poi_row['longitude'])
                     if distance > 0.3:
                         new_validated_ids = new_validated_ids + [poi]
-        # Filter only pois that are really new, not duplicates
-        selected_poi_df = selected_poi_df.loc[selected_poi_df.index.isin(new_validated_ids)]
+            # Filter only pois that are really new, not duplicates
+            selected_poi_df = selected_poi_df.loc[selected_poi_df.index.isin(new_validated_ids)]
+        else:
+            name = self.poi_name
+            type_name = list(selected_poi_df['label'])[0]
+            subtype_name = list(selected_poi_df['label'])[0]
 
         new_ids_start = max_id + 1
         selected_poi_df['name'] = name
