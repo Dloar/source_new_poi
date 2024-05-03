@@ -28,6 +28,6 @@ class RunModel:
         calculated_distances_df = CalculatedPoiDistances(source_data=source_data, poi_name=poi_brand,
                                                          selected_poi_df=new_poi_ids_df).define_new_poi_dataframe()
 
-        # UploadPoiResultsHandler(calculated_distances_df=calculated_distances_df,
-        #                         new_ids_df=new_poi_ids_df.new_ids_df)
+        UploadPoiResultsHandler(calculated_distances_df=calculated_distances_df,
+                                new_ids_df=new_poi_ids_df.new_ids_df)
         logging.info('Model Finished')
