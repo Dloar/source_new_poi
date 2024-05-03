@@ -7,7 +7,7 @@ import yaml
 
 class FindPoiOnNameHandler():
     def __init__(self, ):
-        with open('development/config.yaml') as config:
+        with open('../development/config.yaml') as config:
             country_parts_config = yaml.safe_load(config)
 
         self.districts = country_parts_config['model_parameters']['country_districts']
