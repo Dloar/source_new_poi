@@ -16,9 +16,14 @@ class DefineNewIds:
     def define_new_ids(self, selected_poi_df, max_id):
         # Filter possible existing pois and define new ids
         existing_poi = self.source_data.poi_data_df.loc[self.source_data.poi_data_df['name'] == self.poi_name]
-        name = existing_poi['name'].iloc[0]
-        type_name = existing_poi['type_name'].iloc[0]
-        subtype_name = existing_poi['subtype_name'].iloc[0]
+        if existing_poi.empty:
+            name = self.poi_name
+            type_name = list(selected_poi_df['label'])[0]
+            subtype_name = list(selected_poi_df['label'])[0]
+        else:
+            name = existing_poi['name'].iloc[0]
+            type_name = existing_poi['type_name'].iloc[0]
+            subtype_name = existing_poi['subtype_name'].iloc[0]
 
         # Validate distance compare to existing poi
         if not existing_poi.empty:
