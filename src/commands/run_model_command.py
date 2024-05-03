@@ -10,7 +10,7 @@ from handlers.get_data_for_modeling_handler import GetAllModelingData
 class RunModel:
 
     @staticmethod
-    def run_model(poi_brand: str, poi_group: str) -> NoReturn:
+    def run_model(poi_brand: str = '', poi_group: str = '') -> NoReturn:
         try:
             print(200)
         except:
