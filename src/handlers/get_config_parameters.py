@@ -16,7 +16,7 @@ class ParFactory:
 
         s3_client = boto3.client('s3')
         bucket = 'ad-model-par'
-        adwiro_env = 'test'
+        adwiro_env = 'dev'
         response = s3_client.get_object(Bucket=bucket, Key=f"model-config/{adwiro_env}/config.yaml")
         self.configfile = yaml.safe_load(response["Body"])
 

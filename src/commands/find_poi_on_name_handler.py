@@ -17,26 +17,26 @@ class FindPoiOnNameHandler():
         self.apikey = country_parts_config['api_ident']['apikey']
 
 
-    def define_gps_psc(self):
-        psc_list =  []
-        for psc in self.psc:
-            print(f'Running for {psc}')
-
-            api_url = f"""https://api.mapy.cz/v1/suggest?lang=cs&apikey=Cj3uvTKe2gZw3GZrM0Cq4WhasnpABreTzk4YXJoG9yo&query={psc}&limit=5&type=regional.municipality_part"""
-            response = requests.get(api_url)
-            response_run = response.json()
-            try:
-                output_df = pd.DataFrame(response_run['items'])
-                if output_df.empty:
-                    continue
-                else:
-                    if output_df['regionalStructure'][0][4]['isoCode'] == 'CZ':
-                        print(output_df)
-                        psc_list = psc_list + [psc]
-            except:
-                print(f'Fail {psc}')
-
-        breakpoint()
+    # def define_gps_psc(self):
+    #     psc_list =  []
+    #     for psc in self.psc:
+    #         print(f'Running for {psc}')
+    #
+    #         api_url = f"""https://api.mapy.cz/v1/suggest?lang=cs&apikey=Cj3uvTKe2gZw3GZrM0Cq4WhasnpABreTzk4YXJoG9yo&query={psc}&limit=5&type=regional.municipality_part"""
+    #         response = requests.get(api_url)
+    #         response_run = response.json()
+    #         try:
+    #             output_df = pd.DataFrame(response_run['items'])
+    #             if output_df.empty:
+    #                 continue
+    #             else:
+    #                 if output_df['regionalStructure'][0][4]['isoCode'] == 'CZ':
+    #                     print(output_df)
+    #                     psc_list = psc_list + [psc]
+    #         except:
+    #             print(f'Fail {psc}')
+    #
+    #     breakpoint()
 
     def find_poi_on_name_handler(self, poi_brand, poi_group, limit='15'):
 

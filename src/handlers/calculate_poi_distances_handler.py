@@ -1,3 +1,5 @@
+import logging
+
 import mpu
 import pandas as pd
 
@@ -34,7 +36,7 @@ class CalculatedPoiDistances:
                     valid_distance_list = valid_distance_list + [{'poi_index': new_poi,
                                                                   'billboard_id': selected_board['billboard_id'],
                                                                   'distance': distance}]
-                print(f'All boards done for {new_poi}')
+                logging.info(f'All boards done for {new_poi}')
         except:
             pass
         return valid_distance_list

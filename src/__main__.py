@@ -17,7 +17,7 @@ FORMAT = '%(asctime)s: %(message)s'
 logging.getLogger('boto').setLevel(logging.CRITICAL)
 
 # Create a drectory for logging
-newpath = f'{os.getcwd()}/F-{poi_brand}'
+newpath = f'{os.getcwd()}/POI-{poi_brand}'
 if not os.path.exists(newpath):
     os.makedirs(newpath)
 
