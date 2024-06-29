@@ -6,6 +6,7 @@ from handlers.UploadPoiResultsHandler import UploadPoiResultsHandler
 from handlers.calculate_poi_distances_handler import CalculatedPoiDistances
 from handlers.define_new_ids_handler import DefineNewIds
 from handlers.get_data_for_modeling_handler import GetAllModelingData
+from services.upload_status_service import upload_status
 
 
 class RunModel:
@@ -28,6 +29,10 @@ class RunModel:
         new_poi_ids_df = DefineNewIds(source_data=source_data, poi_name=poi_name, selected_poi_df=new_selected_poi_df)
         logging.info('New ids assign')
 
+        if new_poi_ids_df.new_ids_df.empty:
+            # Upload status if no new ids are discovered
+            upload_status(new_status=source_data.poi_params, status_results=3)
+            exit()
         # # Calculate distances
         calculated_distances_df = CalculatedPoiDistances(source_data=source_data, poi_name=poi_name,
                                                          selected_poi_df=new_poi_ids_df).define_new_poi_dataframe()
