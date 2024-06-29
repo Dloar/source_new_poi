@@ -23,10 +23,11 @@ class GetPoiSourceData:
 
 
     @staticmethod
-    def query_poi_ids_data(schema_name):
+    def query_poi_ids_data(schema_name, filter_name):
         query_poi_ids_data = f'''
                 SELECT type_name, subtype_name, name, `long`, lat, id_poi
                 FROM `{schema_name}`.adw_poi_ids
+                WHERE name = '{filter_name}'
                  ;'''
 
         return query_poi_ids_data

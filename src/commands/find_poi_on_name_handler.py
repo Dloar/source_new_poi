@@ -38,10 +38,11 @@ class FindPoiOnNameHandler():
     #
     #     breakpoint()
 
-    def find_poi_on_name_handler(self, poi_brand, poi_group, limit='15'):
+    def find_poi_on_name_handler(self, source_data,  limit='15'):
 
-        selected_poi_df = pd.DataFrame(columns=['name', 'label', 'position', 'location'])
-        poi_name = poi_group if poi_brand == '' else poi_brand
+        selected_poi_df = pd.DataFrame(columns=['name', 'label', 'position', 'location'])#
+        poi_brand = ''
+        poi_name = source_data.poi_params.iloc[0]['name']
         lower_poi_name = poi_name.lower()
         for districts in self.districts:
             try:
@@ -75,4 +76,4 @@ class FindPoiOnNameHandler():
         selected_poi_df.reset_index(drop=True, inplace=True)
 
         logging.info(f'For {poi_name}, the model found {selected_poi_df.shape[0]} places')
-        return selected_poi_df
+        return selected_poi_df, poi_name, poi_brand

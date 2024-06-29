@@ -27,10 +27,14 @@ class CalculatedPoiDistances:
                     if (selected_board['latitude'] is None) | (selected_board['longitude'] is None) | (
                             selected_board['latitude'] == '') | (selected_board['longitude'] == ''):
                         continue
-                    distance = calculate_distance_between_two_points(point_lat1=selected_poi['lat'],
-                                                                     point_long1=selected_poi['long'],
-                                                                     point_lat2=selected_board['latitude'],
-                                                                     point_long2=selected_board['longitude'])
+                    # elif (abs(selected_poi['lat'] - selected_board['latitude']) < .2) & (
+                    #         abs(selected_poi['long'] - selected_board['longitude']) < 0.2):
+                    #     continue
+                    else:
+                        distance = calculate_distance_between_two_points(point_lat1=selected_poi['lat'],
+                                                                         point_long1=selected_poi['long'],
+                                                                         point_lat2=selected_board['latitude'],
+                                                                         point_long2=selected_board['longitude'])
                     if distance > 5:
                         continue
                     valid_distance_list = valid_distance_list + [{'poi_index': new_poi,

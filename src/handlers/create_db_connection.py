@@ -24,10 +24,15 @@ class DbConnectorModel:
         )
         return conn
 
-    def create_alchemy_db_connection(self) -> object:
+    def create_alchemy_db_connection(self, target_db=None) -> object:
 
-        engine = create_engine(f"mysql+mysqlconnector://{self.secrets['username']}:{self.secrets['password']}@{self.secrets['host']}/{self.secrets['dbInstanceIdentifier']}",
-                               echo=False)
+        if target_db:
+            engine = create_engine(
+                f"mysql+mysqlconnector://{self.secrets['username']}:{self.secrets['password']}@{self.secrets['host']}/{target_db}",
+                echo=False)
+        else:
+            engine = create_engine(
+                f"mysql+mysqlconnector://{self.secrets['username']}:{self.secrets['password']}@{self.secrets['host']}/{self.secrets['dbInstanceIdentifier']}",
+                echo=False)
 
         return engine
-

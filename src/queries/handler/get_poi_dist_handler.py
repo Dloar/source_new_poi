@@ -11,7 +11,7 @@ from queries.get_poi_data_query import GetPoiSourceData
 class GetPoiDistances:
 
     @staticmethod
-    def load_campaign_poi_ids_data():
+    def load_campaign_poi_ids_data(filter_name):
         """
 
         :return:
@@ -20,7 +20,7 @@ class GetPoiDistances:
         conn_engine = DbConnectorModel()
         db_conn = conn_engine.create_db_connection()
         campaign_poi_data = pd.read_sql_query(
-            GetPoiSourceData.query_poi_ids_data(schema_name='adwiro-db-dev'),
+            GetPoiSourceData.query_poi_ids_data(schema_name='adwiro-db-dev', filter_name=filter_name),
             db_conn)
         db_conn.close()
 
